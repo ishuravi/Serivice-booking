@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:service_booking/screens/home_page.dart';
+import 'package:provider/provider.dart';
+import 'package:service_booking/providers/dynamic_provider.dart';
+import 'package:service_booking/providers/login_provider.dart';
+import 'package:service_booking/providers/token_provider.dart';
 import 'colors/colors.dart';
+import 'new_changes/screens/home_new.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => TokenProvider()),
+      ChangeNotifierProvider(create: (_) => LoginProvider()),
+      ChangeNotifierProvider(create: (context) => BusinessProvider()),
+
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +37,7 @@ class MyApp extends StatelessWidget {
           border: OutlineInputBorder(),
         ),
       ),
-      home: HomePage(),
+      home: HomePageNew(),
     );
   }
 }

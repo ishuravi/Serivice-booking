@@ -5,4 +5,6 @@ class AppColors {
   static const Color darkBlue = Color(0xFF032d60);   // Dark blue for buttons/options
   static const Color black = Colors.black;           // Black for text
   static const Color white = Colors.white;           // White for background
+  static const Color lightGrey = Colors.grey;
+  static const Color darkGrey = Colors.blueGrey;
 }
